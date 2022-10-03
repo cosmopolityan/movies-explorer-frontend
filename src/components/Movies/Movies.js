@@ -1,5 +1,31 @@
-// Movies — компонент страницы с поиском по фильмам. В нём пригодятся эти компоненты:
-// SearchForm — форма поиска, куда пользователь будет вводить запрос. Обратите внимание на фильтр с чекбоксом «Только короткометражки». Для него можно воспользоваться отдельным управляемым компонентом FilterCheckbox.
-// Preloader — отвечает за работу прелоадера.
-// MoviesCardList — компонент, который управляет отрисовкой карточек фильмов на страницу и их количеством.
-// MoviesCard — компонент одной карточки фильма.
+import React from "react";
+import MoviesCardList from "../MoviesCardList/MoviesCardList";
+import Footer from "../Footer/Footer";
+import Header from "../Header/Header";
+import SearchForm from "../SearchForm/SearchForm";
+// import Preloader from "../Preloader/Preloader";
+
+const Movie = (props) => {
+  const { logedIn } = props;
+  // Preloader will be added on the next stage when cards will be resieved from the App component as a state
+
+  return (
+    <>
+      <Header
+        logedIn={logedIn}
+      />
+      <main className="content content_state_logedin">
+        <SearchForm
+          place='allmovies'
+        />
+        <MoviesCardList
+          place='allmovies'
+        />
+      </main>
+      <Footer
+      />
+    </>
+  );
+};
+
+export default Movie;
