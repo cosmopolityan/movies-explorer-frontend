@@ -96,7 +96,7 @@ function Login (props) {
           onChange={handleInputChange}
           isInputValid={passwordValid}
           isInputDirty={isPassInputDirty}
-          errorMessage='Пароль должен быть не короче 6 символов и содержать только латинские буквы, цифры, символы !?-_'
+          errorMessage='Пароль должен быть длиннее 6 символов и содержать только латинские буквы, цифры, спецсимволы (!, ?, -, _)'
         />
       </Form>
       <div className='login__texts'>
