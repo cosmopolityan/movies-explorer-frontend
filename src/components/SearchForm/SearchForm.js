@@ -34,6 +34,7 @@ const SearchForm = (props) => {
           id={`movie-${place}`}
           value={movieValue}
           onChange={handleMovieChange}
+          required
         />
         <button className='search__button' type='submit'>Найти</button>
       </form>

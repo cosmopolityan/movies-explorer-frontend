@@ -39,6 +39,8 @@
 }
 
 .portfolio__link {
+  display: flex;
+  background: url('../../images/arrow.svg') right center no-repeat;
   font-family: 'Inter', Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: 400;
@@ -49,7 +51,7 @@
   letter-spacing: -0.04em;
   text-decoration: none;
   transition: 0.3s;
-  width: 90%;
+  width: 100%;
 }
 
 .portfolio__link:hover {

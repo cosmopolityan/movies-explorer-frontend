@@ -24,7 +24,7 @@ const moviesList = [
   },
   {
     duration: 65,
-    image: film2,
+    image: film8,
     movieId: 2,
     nameRU: '33 слова о дизайне',
   },
