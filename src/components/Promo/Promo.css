@@ -1,8 +1,9 @@
 .promo {
   background-color: #272727;
-  width: 100%;
+  width: calc(100% - 80px);
   box-sizing: border-box;
   padding: 75px 70px;
+  align-self: center;
 }
 
 .promo__container {
@@ -82,9 +83,16 @@
   }
 }
 
+@media screen and (max-width:768px){
+  .promo {
+    width: calc(100% - 40px);
+  }
+}
+
 @media screen and (max-width:600px){
   .promo {
     padding: 70px 10px 30px;
+    width: calc(100% - 28px);
   }
 
   .promo__about {
