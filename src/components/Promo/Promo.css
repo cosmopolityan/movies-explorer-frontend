@@ -4,6 +4,7 @@
   box-sizing: border-box;
   padding: 75px 70px;
   align-self: center;
+  border-radius: 10px;
 }
 
 .promo__container {

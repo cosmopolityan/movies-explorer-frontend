@@ -94,8 +94,7 @@
   .movie__about {
     flex-direction: row;
     justify-content: space-between;
-    width: 100%;
-    padding: 14px 12px 0;
+    width: calc(100% - 24px);
     order: 2;
     padding: 0px;
     column-gap: 30px;
