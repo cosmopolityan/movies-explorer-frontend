@@ -1,6 +1,6 @@
-import React from "react";
-import Header from "../Header/Header";
-import Footer from "../Footer/Footer";
+import React from 'react';
+import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
 import Promo from '../Promo/Promo'
 import AboutProject from '../AboutProject/AboutProject'
 import Techs from '../Techs/Techs'
@@ -15,7 +15,7 @@ function Main (props) {
     <Header
         logedIn={props.logedIn}
       />
-    <main className="content">
+    <main className='content'>
       <Promo
         fieldRef={fieldRef}
       />

@@ -1,5 +1,5 @@
 import { useLocation } from 'react-router-dom';
-import React from "react";
+import React from 'react';
 import './Menu.css'
 import Navigation from '../Navigation/Navigation';
 

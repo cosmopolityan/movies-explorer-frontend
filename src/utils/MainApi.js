@@ -1,5 +1,4 @@
-// const MAIN_URL = 'https://api.movies.cosmopolityan.students.nomoredomains.sbs';
-const MAIN_URL = 'http://localhost:3001';
+import { MAIN_URL } from './config';
 
 class Api {
   constructor(options) {

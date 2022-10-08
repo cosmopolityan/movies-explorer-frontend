@@ -1,17 +1,22 @@
 import React from "react";
-import { useHistory } from 'react-router-dom';
 import Header from "../Header/Header";
 import Form from '../Form/Form';
 import './Profile.css'
 import CurrentUserContext from '../../contexts/CurrentUserContext'
 
 const Profile = (props) => {
-  const { logedIn, onUpdateUser } = props;
-  const history = useHistory();
+  const {
+    logedIn,
+    onUpdateUser,
+    isError,
+    errorText,
+    onSignOut,
+    successText
+  } = props;
 
   const currentUser = React.useContext(CurrentUserContext)
-  const [isNameValid, setIsNameValid] = React.useState(true);
-  const [isEmailValid, setIsEmailValid] = React.useState(true);
+  const [isNameValid, setIsNameValid] = React.useState(false);
+  const [isEmailValid, setIsEmailValid] = React.useState(false);
 
   const [formValues, setFormValues] = React.useState({
     username: currentUser.name,
@@ -19,14 +24,14 @@ const Profile = (props) => {
   });
 
   const [formValidity, setFormValidity] = React.useState({
-    nameValid: true,
-    emailValid: true
+    nameValid: false,
+    emailValid: false
   });
 
   React.useEffect(() => {
     setFormValues({
       username: currentUser.name,
-      useremail: currentUser.email
+      useremail: currentUser.email,
     })
   }, [currentUser])
 
@@ -42,12 +47,6 @@ const Profile = (props) => {
       emailValid: isEmailValid
     })
   }, [isEmailValid, isNameValid, formValues.username, formValues.useremail])
-
-  function signOut(){
-    // localStorage.removeItem('jwt');
-    props.logIn(false);
-    history.push('/');
-  }
 
   const handleInputChange = (evt) => {
     const { name, value } = evt.target
@@ -65,7 +64,9 @@ const Profile = (props) => {
 
   const { username, useremail } = formValues;
   const { nameValid, emailValid } = formValidity;
-  const isSubmitAble = nameValid && emailValid;
+  const isSubmitAble = nameValid
+    && emailValid
+    && !(username === currentUser.name && useremail === currentUser.email);
 
   return (
     <>
@@ -79,6 +80,9 @@ const Profile = (props) => {
           btntitle='Редактировать'
           onSubmit={handleSubmit}
           valid={isSubmitAble}
+          isError={isError}
+          errorText={errorText}
+          successText={successText}
         >
           <div className='profile__inputblock'>
             <label htmlFor='profilename' className='profile__label'>
@@ -96,14 +100,14 @@ const Profile = (props) => {
           </div>
           {!isNameValid && <span className='profile__errormessage'>Имя пользователя должно быть длиннее 2-х символов</span>}
           <div className='profile__inputblock'>
-            <label htmlFor='profileeimal' className='profile__label'>
+            <label htmlFor='profileemail' className='profile__label'>
               E-mail
             </label>
             <input
               className={`profile__input ${!isEmailValid && 'profile__input_error'}`}
               name='useremail'
               type='email'
-              id='profileeimal'
+              id='profileemail'
               value={useremail}
               onChange={handleInputChange}
               placeholder='Email пользователя'
@@ -111,7 +115,7 @@ const Profile = (props) => {
           </div>
           {!isEmailValid && <span className='profile__errormessage'>Email некорретен</span>}
         </Form>
-        <p onClick={signOut} className="profile__logout">Выйти из аккаунта</p>
+        <p onClick={onSignOut} className="profile__logout">Выйти из аккаунта</p>
       </main>
     </>
   );

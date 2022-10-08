@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import { Link } from 'react-router-dom';
 import Logo from '../Logo/Logo';
 import Form from '../Form/Form';
@@ -6,7 +6,7 @@ import Input from '../Input/Input';
 import './Login.css'
 
 function Login (props) {
-  const { onLogIn } = props
+  const { onLogIn, isError, errorText } = props
   const [isEmailValid, setIsEmailValid] = React.useState(false);
   const [isPasswordValid, setIsPasswordValid] = React.useState(false);
   const [isEmailInputDirty, setIsEmailInputDirty] = React.useState(false);
@@ -53,7 +53,7 @@ function Login (props) {
   const handleSubmit = (evt) => {
     evt.preventDefault();
     const { email, password } = formValues;
-    onLogIn({email, password});
+    onLogIn(email, password);
   }
 
   const { email, password } = formValues;
@@ -71,6 +71,8 @@ function Login (props) {
         btntitle='Войти'
         valid={isSubmitAble}
         onSubmit={handleSubmit}
+        isError={isError}
+        errorText={errorText}
       >
         <Input
           value={email}

@@ -1,5 +1,5 @@
 import Logo from '../Logo/Logo';
-import React from "react";
+import React from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import './Header.css'
 import Navigation from '../Navigation/Navigation';
@@ -21,13 +21,13 @@ function Header (props) {
       <div className='header__container'>
         <Logo
         />
-        {!logedIn && <div className="header__links">
-        <Link to="/signup"
-          className="header__sigup">
+        {!logedIn && <div className='header__links'>
+        <Link to='/signup'
+          className='header__sigup'>
           Регистрация
         </Link>
-        <Link to="/signin"
-          className="header__sigin">
+        <Link to='/signin'
+          className='header__sigin'>
           Войти
         </Link>
         </div>}
