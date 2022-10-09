@@ -16,7 +16,8 @@ function Register(props) {
   const [isPassInputDirty, setIsPassInputDirty] = React.useState(false);
 
   const [formValues, setFormValues] = React.useState({
-    userName: '',
+    // userName: '',
+    name: '',
     email: '',
     password: '',
   });
@@ -31,7 +32,8 @@ function Register(props) {
     const regexEmail = /^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/;
     const regexPassword = /^[a-zA-Z0-9-_!?]+$/;
 
-    const nameValidity = formValues.userName.trim().length > 1;
+    // const nameValidity = formValues.userName.trim().length > 1;
+    const nameValidity = formValues.name.trim().length > 1;
     const passwordValidity = formValues.password.trim().length > 5 && regexPassword.test(formValues.password);
     const emailValidity = formValues.email.trim().length > 5 && regexEmail.test(formValues.email.trim());
 
@@ -44,7 +46,8 @@ function Register(props) {
       emailValid: isEmailValid,
       passwordValid: isPasswordValid,
     })
-  }, [isNameValid, isEmailValid, isPasswordValid, formValues.userName, formValues.email, formValues.password])
+  }, [isNameValid, isEmailValid, isPasswordValid, formValues.name, formValues.email, formValues.password])
+  // }, [isNameValid, isEmailValid, isPasswordValid, formValues.userName, formValues.email, formValues.password])
 
   const handleInputChange = (evt) => {
     const { name, value } = evt.target
@@ -64,11 +67,14 @@ function Register(props) {
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    const { userName, email, password } = formValues;
-    onRegister({email, password, userName });
+    const { name, email, password } = formValues;
+    onRegister({email, password, name });
+    // const { userName, email, password } = formValues;
+    // onRegister({email, password, userName });
   }
 
-  const { userName, email, password } = formValues;
+  // const { userName, email, password } = formValues;
+  const { name, email, password } = formValues;
   const { nameValid, emailValid, passwordValid } = formValidity;
   const isSubmitAble = nameValid && emailValid && passwordValid;
 
@@ -87,8 +93,10 @@ function Register(props) {
         errorText={errorText}
       >
         <Input
-          value={userName}
-          name='userName'
+          value={name}
+          // value={userName}
+          name='name'
+          // name='userName'
           label='Имя'
           type='text'
           id='register-name'
