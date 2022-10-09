@@ -11,4 +11,4 @@ IP сервера: 51.250.100.213
 
 Стандарты Яндекс.Практикума по оформлению HTML и CSS кода: https://code.s3.yandex.net/web-developer/landings/design-rules/index.html
 
-Пул-реквест: 
+Пул-реквест: https://github.com/cosmopolityan/movies-explorer-frontend/pull/6
