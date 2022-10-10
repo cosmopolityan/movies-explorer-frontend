@@ -1,4 +1,5 @@
-import { MAIN_URL } from './config';
+// import { MAIN_URL } from './config';
+const MAIN_URL = 'https://api.movies.cosmopolityan.students.nomoredomains.sbs';
 
 class Api {
   constructor(options) {

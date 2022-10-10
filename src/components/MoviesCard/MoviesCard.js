@@ -3,24 +3,17 @@ import './MoviesCard.css';
 import { mainApi } from '../../utils/MainApi';
 
 const MoviesCard = (props) => {
-  const { movie, place, handleLikeClick } = props;
+  const { movie, place, handleLikeClick, savedCards } = props;
   const [isLiked, setIsLiked] = React.useState(false)
 
   React.useEffect(() => {
-    const jwt = localStorage.getItem('jwt');
-    mainApi.getMovies(jwt)
-      .then((movies) => {
-        const likedMovie = movies.find((item) => {
-          return movie.id == item.movieId;
-        })
-        if (likedMovie) {
-          setIsLiked(true);
-          movie._id = likedMovie._id;
-        }
-      })
-      .catch((err) => {
-        console.log(err)
-      })
+    if (savedCards) {
+      const likedMovie = savedCards.find((item) => movie.id == item.movieId);
+      if (likedMovie) {
+        setIsLiked(true);
+        movie._id = likedMovie._id;
+      }
+    }
   }, [])
 
   const onLike = (movie) => {
@@ -85,17 +78,18 @@ const MoviesCard = (props) => {
           `}
             onClick={place === 'allmovies' ? () => onLike(movie) : () => handleLikeClick(movie)}
           ></button>
-          </div>
-          <div className='movie__imgblock'>
-            <img
-              className='movie__img'
-              src={place === 'allmovies' ? `https://api.nomoreparties.co${movie.image.url}` : movie.image}
-              alt={movie.nameRU}
-            />
-            <a className='movie__link' href={movie.trailerLink} target='_blank' rel='noreferrer' area-label='ссылка на трейлер'> </a>
-          </div>
+        </div>
+        <div className='movie__imgblock'>
+          <img
+            className='movie__img'
+            src={place === 'allmovies' ? `https://api.nomoreparties.co${movie.image.url}` : movie.image}
+            alt={movie.nameRU}
+          />
+          <a className='movie__link' href={movie.trailerLink} target='_blank' rel='noreferrer' area-label='ссылка на трейлер'> </a>
+        </div>
       </li>
     );
   };
 }
+
 export default MoviesCard;
