@@ -1,4 +1,5 @@
 import { MAIN_URL } from './config';
+import { BASE_URL } from './config';
 
 class Api {
   constructor(options) {
@@ -38,8 +39,9 @@ class Api {
   };
 
   checkToken = (token) => {
-    return fetch(`${this._url}/users/me`, {
-      method: 'GET',
+    // return fetch(`${this._url}/users/me`, { // где-то здесь проблема. С токеном?
+    return fetch(`${BASE_URL}/users/me`, {
+    method: 'GET',
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
@@ -50,7 +52,8 @@ class Api {
   }
 
   getUser = (token) => {
-    return fetch(`${this._url}/users/me`, {
+    // return fetch(`${this._url}/users/me`, { // где-то здесь проблема. С токеном?
+      return fetch(`${BASE_URL}/users/me`, {
       headers: {
         'Authorization': `Bearer ${token}`,
         'Content-Type': 'application/json'
@@ -60,8 +63,9 @@ class Api {
   }
 
   editProfileInfo(newInfo, token) {
-    return fetch(`${this._url}/users/me`, {
-      method: 'PATCH',
+    // return fetch(`${this._url}/users/me`, { // где-то здесь проблема. С токеном?
+    return fetch(`${BASE_URL}/users/me`, {
+    method: 'PATCH',
       headers: {
         'Authorization': `Bearer ${token}`,
         'Content-Type': 'application/json'
@@ -75,7 +79,8 @@ class Api {
   }
 
   getMovies(token) {
-    return fetch(`${this._url}/movies`, {
+    // return fetch(`${this._url}/movies`, { // где-то здесь проблема. С токеном?
+      return fetch(`${BASE_URL}/movies`, {
       headers: {
         'Authorization': `Bearer ${token}`,
         'Content-Type': 'application/json'
@@ -85,8 +90,9 @@ class Api {
   }
 
   saveMovie(movie, token) {
-    return fetch(`${this._url}/movies`, {
-      method: 'POST',
+    // return fetch(`${this._url}/movies`, { // где-то здесь проблема. С токеном?
+    return fetch(`${BASE_URL}/movies`, {
+    method: 'POST',
       headers: {
         'Authorization': `Bearer ${token}`,
         'Content-Type': 'application/json'
@@ -97,8 +103,9 @@ class Api {
   }
 
   deleteMovie(id, token) {
-    return fetch(`${this._url}/movies/${id}`, {
-      method: 'DELETE',
+    // return fetch(`${this._url}/movies/${id}`, { // где-то здесь проблема. С токеном?
+    return fetch(`${BASE_URL}}/movies/${id}`, {
+    method: 'DELETE',
       headers: {
         'Authorization': `Bearer ${token}`,
         'Content-Type': 'application/json'

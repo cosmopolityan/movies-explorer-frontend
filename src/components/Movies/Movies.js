@@ -24,7 +24,7 @@ const Movie = (props) => {
         setSavedCards(res);
       })
       .catch((err) => {
-        console.lof(err)
+        console.log(err)
       })
   }, [])
 
