@@ -54,7 +54,7 @@ function App() {
     tokenCheck();
   }, []) //
 
-  const handleRegister = (email, password, name) => {
+  const handleRegister = (email, password, name) => { // здесь проблема?
     setRegError(false);
     mainApi.register(email, password, name)
       .then(() => {

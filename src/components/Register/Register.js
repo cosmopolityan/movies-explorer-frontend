@@ -68,7 +68,8 @@ function Register(props) {
   const handleSubmit = (evt) => {
     evt.preventDefault();
     const { name, email, password } = formValues;
-    onRegister({email, password, name });
+    // onRegister({email, password, name }); // здесь проблема?
+    onRegister(email, password, name );
     // const { userName, email, password } = formValues;
     // onRegister({email, password, userName });
   }
