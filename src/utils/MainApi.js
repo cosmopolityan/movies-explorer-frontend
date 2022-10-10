@@ -115,6 +115,7 @@ class Api {
   }
 }
 
-const mainApi = new Api({ baseUrl: MAIN_URL });
+// const mainApi = new Api({ baseUrl: MAIN_URL });
+const mainApi = new Api({ baseUrl: BASE_URL });
 
 export { mainApi }
