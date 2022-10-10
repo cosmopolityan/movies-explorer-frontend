@@ -43,7 +43,7 @@ const SearchForm = (props) => {
             value={movieValue}
             onChange={handleMovieChange}
           />
-          <button className='search__button' type='submit'></button>
+          <button className='search__button' type='submit'>Найти</button>
         </form>
         {showMessage && <span className='search__errormessage'>Нужно ввести ключевое слово</span>}
       </div>
