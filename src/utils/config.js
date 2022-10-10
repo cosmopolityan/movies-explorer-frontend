@@ -13,7 +13,8 @@ const ERROR_404 = 'Ошибка: 404';
 const ERROR_409 = 'Ошибка: 409';
 
 const BASE_URL = 'https://api.nomoreparties.co/beatfilm-movies';
-const MAIN_URL = `${window.location.protocol}//api.movies.cosmopolityan.students.nomoredomains.sbs`;
+// const MAIN_URL = `${window.location.protocol}//api.movies.cosmopolityan.students.nomoredomains.sbs`;
+const MAIN_URL = 'https://api.movies.cosmopolityan.students.nomoredomains.sbs';
 
 export {
   ERROR_MESSAGE_500,
