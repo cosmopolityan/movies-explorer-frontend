@@ -54,7 +54,7 @@ function App() {
     tokenCheck();
   }, []) //
 
-  const handleRegister = (email, password, name) => { // здесь проблема?
+  const handleRegister = (email, password, name) => {
     setRegError(false);
     mainApi.register(email, password, name)
       .then(() => {
@@ -80,12 +80,12 @@ function App() {
         localStorage.setItem('jwt', data.token);
         setLogedIn(true);
         mainApi.getUser(data.token)
-        .then((res) => {
-          setCurrentUser(res);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+          .then((res) => {
+            setCurrentUser(res);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
         history.push('/movies')
       })
       .catch((err) => {
@@ -153,25 +153,25 @@ function App() {
           />
         </Route>
         <Route path='/signup'>
-        {() =>
-           !logedIn ?
-            <Register
-              onRegister={handleRegister}
-              isError={regError}
-              errorText={errorText}
-            />
-            : <Redirect to='/movies' />
+          {() =>
+            !logedIn ?
+              <Register
+                onRegister={handleRegister}
+                isError={regError}
+                errorText={errorText}
+              />
+              : <Redirect to='/movies' />
           }
         </Route>
         <Route path='/signin'>
-        {() =>
+          {() =>
             !logedIn ?
-            <Login
-              onLogIn={handleLogIn}
-              isError={loginError}
-              errorText={errorText}
-            />
-            : <Redirect to='/movies' />
+              <Login
+                onLogIn={handleLogIn}
+                isError={loginError}
+                errorText={errorText}
+              />
+              : <Redirect to='/movies' />
           }
         </Route>
 
