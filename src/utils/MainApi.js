@@ -15,7 +15,7 @@ class Api {
   }
 
   register = (email, password, name) => {
-    return fetch(`${this._url}/signup`, { // здесь проблема
+    return fetch(`${this._url}/signup`, {
       // return fetch(`${MAIN_URL}/signup`, {
       method: 'POST',
       headers: {
@@ -28,7 +28,7 @@ class Api {
   };
 
   authorize = (email, password) => {
-    return fetch(`${this._url}/signin`, { // здесь проблема
+    return fetch(`${this._url}/signin`, {
       // return fetch(`${MAIN_URL}/signin`, {
       method: 'POST',
       headers: {
@@ -41,7 +41,7 @@ class Api {
   };
 
   checkToken = (token) => {
-    return fetch(`${this._url}/users/me`, { // где-то здесь проблема. С токеном?
+    return fetch(`${this._url}/users/me`, {
       // return fetch(`${MAIN_URL}/users/me`, {
       method: 'GET',
       headers: {
@@ -54,7 +54,7 @@ class Api {
   }
 
   getUser = (token) => {
-    return fetch(`${this._url}/users/me`, { // где-то здесь проблема. С токеном?
+    return fetch(`${this._url}/users/me`, {
       //return fetch(`${MAIN_URL}/users/me`, {
       headers: {
         'Authorization': `Bearer ${token}`,
@@ -65,7 +65,7 @@ class Api {
   }
 
   editProfileInfo(newInfo, token) {
-    return fetch(`${this._url}/users/me`, { // где-то здесь проблема. С токеном?
+    return fetch(`${this._url}/users/me`, {
     // return fetch(`${MAIN_URL}/users/me`, {
       method: 'PATCH',
       headers: {
@@ -81,7 +81,7 @@ class Api {
   }
 
   getMovies(token) {
-    return fetch(`${this._url}/movies`, { // где-то здесь проблема. С токеном?
+    return fetch(`${this._url}/movies`, {
     // return fetch(`${MAIN_URL}/movies`, {
       headers: {
         'Authorization': `Bearer ${token}`,
@@ -92,7 +92,7 @@ class Api {
   }
 
   saveMovie(movie, token) {
-    return fetch(`${this._url}/movies`, { // где-то здесь проблема. С токеном?
+    return fetch(`${this._url}/movies`, {
     // return fetch(`${MAIN_URL}/movies`, {
       method: 'POST',
       headers: {
@@ -105,7 +105,7 @@ class Api {
   }
 
   deleteMovie(id, token) {
-    return fetch(`${this._url}/movies/${id}`, { // где-то здесь проблема. С токеном?
+    return fetch(`${this._url}/movies/${id}`, {
     // return fetch(`${MAIN_URL}/movies/${id}`, {
       method: 'DELETE',
       headers: {
