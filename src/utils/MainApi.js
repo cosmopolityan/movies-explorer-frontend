@@ -40,7 +40,7 @@ class Api {
       .then(this._checkResponse)
   };
 
-  checkToken = (token) => {
+  checkToken = (token) => { // не работает почему-то
     return fetch(`${this._url}/users/me`, {
       // return fetch(`${MAIN_URL}/users/me`, {
       method: 'GET',
