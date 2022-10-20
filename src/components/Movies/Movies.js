@@ -57,9 +57,10 @@ const Movie = (props) => {
         if (shortMovie) {
           return movie.duration <= 40;
         }
+        console.log(movie);
         return movie;
       }
-      console.log(movie);
+      // console.log(movie);
       return false;
     });
     if (moviesList.length === 0) {
