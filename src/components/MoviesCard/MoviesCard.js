@@ -50,7 +50,8 @@ const MoviesCard = (props) => {
         })
         .catch((err) => {
           console.log(err);
-        })
+        });
+        console.log(newMovie);
     } else {
       mainApi.deleteMovie(movie._id, jwt)
         .then(() => {

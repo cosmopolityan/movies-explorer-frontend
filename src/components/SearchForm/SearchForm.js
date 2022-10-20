@@ -24,6 +24,7 @@ const SearchForm = (props) => {
       setShowMessage(false);
       onSubmit(movieValue);
     }
+    console.log(movieValue);
   };
 
   return (

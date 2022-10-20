@@ -26,6 +26,7 @@ const Movie = (props) => {
       .catch((err) => {
         console.log(err)
       })
+      console.log(jwt);
   }, [])
 
   const searchMovies = (searchkey) => {
@@ -54,7 +55,7 @@ const Movie = (props) => {
     const moviesList = data.filter((movie) => {
       if (movie.nameRU.toLowerCase().includes(searchkey.toLowerCase())) {
         if (shortMovie) {
-          return movie.duration <= 40;;
+          return movie.duration <= 40;
         }
         return movie;
       }
@@ -71,7 +72,7 @@ const Movie = (props) => {
     if (moviesList.length > 0) {
       if (!shortMovie) {
         const movies = moviesList.filter((movie) => {
-          return movie.duration <= 40;;
+          return movie.duration <= 40;
         });
         setMoviesList(movies);
         if (movies.length === 0) {

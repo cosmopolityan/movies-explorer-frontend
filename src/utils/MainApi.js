@@ -1,4 +1,3 @@
-// import { MAIN_URL } from './config';
 const MAIN_URL = 'https://api.movies.cosmopolityan.students.nomoredomains.sbs';
 
 class Api {
@@ -16,7 +15,6 @@ class Api {
 
   register = (email, password, name) => {
     return fetch(`${this._url}/signup`, {
-      // return fetch(`${MAIN_URL}/signup`, {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -29,7 +27,6 @@ class Api {
 
   authorize = (email, password) => {
     return fetch(`${this._url}/signin`, {
-      // return fetch(`${MAIN_URL}/signin`, {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -40,9 +37,8 @@ class Api {
       .then(this._checkResponse)
   };
 
-  checkToken = (token) => { // не работает почему-то
+  checkToken = (token) => {
     return fetch(`${this._url}/users/me`, {
-      // return fetch(`${MAIN_URL}/users/me`, {
       method: 'GET',
       headers: {
         'Accept': 'application/json',
@@ -55,7 +51,6 @@ class Api {
 
   getUser = (token) => {
     return fetch(`${this._url}/users/me`, {
-      //return fetch(`${MAIN_URL}/users/me`, {
       headers: {
         'Authorization': `Bearer ${token}`,
         'Content-Type': 'application/json'
@@ -66,7 +61,6 @@ class Api {
 
   editProfileInfo(newInfo, token) {
     return fetch(`${this._url}/users/me`, {
-    // return fetch(`${MAIN_URL}/users/me`, {
       method: 'PATCH',
       headers: {
         'Authorization': `Bearer ${token}`,
@@ -82,7 +76,6 @@ class Api {
 
   getMovies(token) {
     return fetch(`${this._url}/movies`, {
-    // return fetch(`${MAIN_URL}/movies`, {
       headers: {
         'Authorization': `Bearer ${token}`,
         'Content-Type': 'application/json'
@@ -93,7 +86,6 @@ class Api {
 
   saveMovie(movie, token) {
     return fetch(`${this._url}/movies`, {
-    // return fetch(`${MAIN_URL}/movies`, {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${token}`,
@@ -106,7 +98,6 @@ class Api {
 
   deleteMovie(id, token) {
     return fetch(`${this._url}/movies/${id}`, {
-    // return fetch(`${MAIN_URL}/movies/${id}`, {
       method: 'DELETE',
       headers: {
         'Authorization': `Bearer ${token}`,
