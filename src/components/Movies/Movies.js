@@ -26,7 +26,7 @@ const Movie = (props) => {
       .catch((err) => {
         console.log(err)
       })
-      console.log(jwt);
+      // console.log(jwt);
   }, [])
 
   const searchMovies = (searchkey) => {
@@ -59,12 +59,14 @@ const Movie = (props) => {
         }
         return movie;
       }
+      console.log(movie);
       return false;
     });
     if (moviesList.length === 0) {
       setTextShown(true);
     }
     setMoviesList(moviesList);
+    console.log(data);
   }
 
   const filterMovies = () => {
@@ -83,6 +85,7 @@ const Movie = (props) => {
       } else {
         const originalMovies = JSON.parse(localStorage.getItem('allmovies'))
         setMoviesList(originalMovies);
+        console.log(originalMovies);
       }
     }
   }
