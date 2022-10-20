@@ -7,7 +7,7 @@ const MoviesCardList = (props) => {
   const [cardNumber, setCardNumber] = React.useState(0);
   const documentWidth = document.documentElement.clientWidth;
 
-  React.useEffect( () => {
+  React.useEffect(() => {
     renderItems();
     window.addEventListener('resize', (evt) => resizeItems(evt));
     return () => {
@@ -43,8 +43,8 @@ const MoviesCardList = (props) => {
 
   return (
     <section className='movies__block'>
-      {moviesList && moviesList.length > 0 && <ul className='movies__list'>
-        {moviesList.slice(0, cardNumber).map((movie) => (
+      <ul className='movies__list'>
+        {moviesList.map((movie) => (
           <MoviesCard
             key={movie.id ? movie.id : movie.movieId}
             movie={movie}
@@ -52,13 +52,27 @@ const MoviesCardList = (props) => {
             handleLikeClick={handleLikeClick}
           />
         ))}
-        </ul>}
-      {cardNumber < moviesList.length  && <button
-        type='button'
-        className='movies__button'
-        onClick={handleBtnClick}
-      >Ещё</button>}
+      </ul>
     </section>
+
+    // <section className='movies__block'>
+    //   {moviesList && moviesList.length > 0 && <ul className='movies__list'>
+    //     {moviesList.slice(0, cardNumber).map((movie) => (
+    //       <MoviesCard
+    //         key={movie.id ? movie.id : movie.movieId}
+    //         movie={movie}
+    //         place={place}
+    //         handleLikeClick={handleLikeClick}
+    //       />
+    //     ))}
+    //     </ul>}
+    //   {cardNumber < moviesList.length  && <button
+    //     type='button'
+    //     className='movies__button'
+    //     onClick={handleBtnClick}
+    //   >Ещё</button>}
+    // </section>
+
   );
 };
 
