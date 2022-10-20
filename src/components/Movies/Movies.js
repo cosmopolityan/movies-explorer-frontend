@@ -66,8 +66,9 @@ const Movie = (props) => {
     if (moviesList.length === 0) {
       setTextShown(true);
     }
-    setMoviesList(moviesList);
+    setMoviesList(moviesList); //
     console.log(data);
+    console.log(moviesList);
   }
 
   const filterMovies = () => {
