@@ -39,6 +39,8 @@ const MoviesCardList = (props) => {
     }
   }
 
+  console.log(moviesList, 'moviesList');
+
   return (
     <section className='movies__block'>
       {moviesList && moviesList.length > 0 && <ul className='movies__list'>
