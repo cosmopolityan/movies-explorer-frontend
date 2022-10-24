@@ -58,19 +58,19 @@ const MoviesCardList = (props) => {
       </ul>
     </section>
 
-  // return (
-  //   <section className='movies__block'>
-  //     <ul className='movies__list'>
-  //       {moviesList.map((movie) => (
-  //         <MoviesCard
-  //           key={movie.id ? movie.id : movie.movieId}
-  //           movie={movie}
-  //           place={place}
-  //           handleLikeClick={handleLikeClick}
-  //         />
-  //       ))}
-  //     </ul>
-  //   </section>
+    // return (
+    //   <section className='movies__block'>
+    //     <ul className='movies__list'>
+    //       {moviesList.map((movie) => (
+    //         <MoviesCard
+    //           key={movie.id ? movie.id : movie.movieId}
+    //           movie={movie}
+    //           place={place}
+    //           handleLikeClick={handleLikeClick}
+    //         />
+    //       ))}
+    //     </ul>
+    //   </section>
 
 
 
