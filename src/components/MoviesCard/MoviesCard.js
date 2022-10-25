@@ -61,6 +61,7 @@ const MoviesCard = (props) => {
           console.log(err);
         })
     }
+  }
 
     return (
       <li className='movie'>
@@ -91,6 +92,5 @@ const MoviesCard = (props) => {
       </li>
     );
   };
-}
 
 export default MoviesCard;
