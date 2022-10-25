@@ -38,6 +38,7 @@ class Api {
   };
 
   checkToken = (token) => {
+    console.log(token);
     return fetch(`${this._url}/users/me`, {
       method: 'GET',
       headers: {
@@ -50,6 +51,7 @@ class Api {
   }
 
   getUser = (token) => {
+    console.log(token);
     return fetch(`${this._url}/users/me`, {
       headers: {
         'Authorization': `Bearer ${token}`,
@@ -60,6 +62,8 @@ class Api {
   }
 
   editProfileInfo(newInfo, token) {
+    console.log(newInfo);
+    console.log(token);
     return fetch(`${this._url}/users/me`, {
       method: 'PATCH',
       headers: {
@@ -75,6 +79,7 @@ class Api {
   }
 
   getMovies(token) {
+    console.log(token);
     return fetch(`${this._url}/movies`, {
       headers: {
         'Authorization': `Bearer ${token}`,
@@ -85,7 +90,9 @@ class Api {
   }
 
   saveMovie(movie, token) {
-    return fetch(`${this._url}/movies`, {
+    console.log(movie);
+    console.log(token);
+    return fetch(`${this._url}/movies`, { // Failed to load resource: the server responded with a status of 400 (Bad Request)
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${token}`,
@@ -93,10 +100,12 @@ class Api {
       },
       body: JSON.stringify(movie)
     })
-      .then(this._checkResponse)
+      .then(this._checkResponse);
   }
 
   deleteMovie(id, token) {
+    console.log(id);
+    console.log(token);
     return fetch(`${this._url}/movies/${id}`, {
       method: 'DELETE',
       headers: {
