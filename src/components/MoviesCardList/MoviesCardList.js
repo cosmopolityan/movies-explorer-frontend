@@ -42,55 +42,40 @@ const MoviesCardList = (props) => {
   console.log(moviesList, 'moviesList');
 
   return (
-    <section className='movies__block'>
-      <ul className='movies__list'>
-        {moviesList.map((movie) => {
-          return (
-            <MoviesCard
-              key={movie.id ? movie.id : movie.movieId}
-              movie={movie}
-              place={place}
-              handleLikeClick={handleLikeClick}
-            />
-          )
-        }
-        )}
-      </ul>
-    </section>
 
-    // return (
-    //   <section className='movies__block'>
-    //     <ul className='movies__list'>
-    //       {moviesList.map((movie) => (
+    // <section className='movies__block'>
+    //   <ul className='movies__list'>
+    //     {moviesList.map((movie) => {
+    //       return (
     //         <MoviesCard
     //           key={movie.id ? movie.id : movie.movieId}
     //           movie={movie}
     //           place={place}
     //           handleLikeClick={handleLikeClick}
     //         />
-    //       ))}
-    //     </ul>
-    //   </section>
-
-
-
-    // <section className='movies__block'>
-    //   {moviesList && moviesList.length > 0 && <ul className='movies__list'>
-    //     {moviesList.slice(0, cardNumber).map((movie) => (
-    //       <MoviesCard
-    //         key={movie.id ? movie.id : movie.movieId}
-    //         movie={movie}
-    //         place={place}
-    //         handleLikeClick={handleLikeClick}
-    //       />
-    //     ))}
-    //     </ul>}
-    //   {cardNumber < moviesList.length  && <button
-    //     type='button'
-    //     className='movies__button'
-    //     onClick={handleBtnClick}
-    //   >Ещё</button>}
+    //       )
+    //     }
+    //     )}
+    //   </ul>
     // </section>
+
+    <section className='movies__block'>
+      {moviesList && moviesList.length > 0 && <ul className='movies__list'>
+        {moviesList.slice(0, cardNumber).map((movie) => (
+          <MoviesCard
+            key={movie.id ? movie.id : movie.movieId}
+            movie={movie}
+            place={place}
+            handleLikeClick={handleLikeClick}
+          />
+        ))}
+        </ul>}
+      {cardNumber < moviesList.length  && <button
+        type='button'
+        className='movies__button'
+        onClick={handleBtnClick}
+      >Ещё</button>}
+    </section>
 
   );
 };
