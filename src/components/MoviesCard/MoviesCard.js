@@ -18,6 +18,7 @@ const MoviesCard = (props) => {
 
   const onLike = (movie) => {
     const jwt = localStorage.getItem('jwt');
+    console.log(jwt);
     if (!isLiked) {
       const { country,
         description,
@@ -43,7 +44,7 @@ const MoviesCard = (props) => {
         nameRU,
         nameEN,
       }
-      mainApi.saveMovie(newMovie, jwt)
+      mainApi.saveMovie(newMovie, jwt) // (anonymous)
         .then((res) => {
           movie._id = res._id;
           setIsLiked(true);
@@ -52,6 +53,7 @@ const MoviesCard = (props) => {
           console.log(err);
         });
         console.log(newMovie);
+        console.log(jwt);
     } else {
       mainApi.deleteMovie(movie._id, jwt)
         .then(() => {
@@ -59,7 +61,9 @@ const MoviesCard = (props) => {
         })
         .catch((err) => {
           console.log(err);
-        })
+        });
+        console.log(movie._id);
+        console.log(jwt);
     }
   }
 
