@@ -42,8 +42,8 @@ const SavedMovies = (props) => {
     const movies = JSON.parse(localStorage.getItem('savedMovies'));
     console.log(movies, 'фильмы из savedMovies');
 
-    const filteredMovies = Object.values(movies).filter((movie) => {
-      // const filteredMovies = movies.filter((movie) => {
+    // const filteredMovies = Object.values(movies).filter((movie) => {
+      const filteredMovies = movies.filter((movie) => {
       // Uncaught TypeError: n.filter is not a function
       if (movie.nameRU.toLowerCase().includes(searchkey.toLowerCase())) {
         console.log(movie, 'фильмы после фильтра');
@@ -53,6 +53,7 @@ const SavedMovies = (props) => {
     });
     localStorage.setItem('filteredMovies', JSON.stringify(filteredMovies));
     const filteredByLengthMovies = filteredMovies.filter((movie) => {
+      console.log(filteredByLengthMovies, 'filteredMovies');
       if (movie.nameRU.toLowerCase().includes(searchkey.toLowerCase())) {
         if (shortMovie) {
           return movie.duration <= 40;;
