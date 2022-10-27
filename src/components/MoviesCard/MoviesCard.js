@@ -44,7 +44,7 @@ const MoviesCard = (props) => {
         nameRU,
         nameEN,
       }
-      mainApi.saveMovie(newMovie, jwt) // (anonymous)
+      mainApi.saveMovie(newMovie, jwt)
         .then((res) => {
           movie._id = res._id;
           setIsLiked(true);

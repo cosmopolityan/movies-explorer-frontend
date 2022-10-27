@@ -22,9 +22,9 @@ const SearchForm = (props) => {
       setShowMessage(true);
     } else {
       setShowMessage(false);
-      onSubmit(movieValue);
+      onSubmit(movieValue); //
     }
-    console.log(movieValue);
+    console.log(movieValue, 'получили фильм по handleSubmit в SearchForm'); // здесь все ок
   };
 
   return (

@@ -39,10 +39,12 @@ const SavedMovies = (props) => {
 
   const searchMovies = (searchkey) => {
     setTextShown(false);
-    const movies = JSON.parse(localStorage.getItem('savedMovies'))
+    const movies = JSON.parse(localStorage.getItem('savedMovies'));
+    console.log(movies, 'фильмы из savedMovies');
 
-    const filteredMovies = movies.filter((movie) => {
+    const filteredMovies = movies.filter((movie) => { // Uncaught TypeError: n.filter is not a function
       if (movie.nameRU.toLowerCase().includes(searchkey.toLowerCase())) {
+        console.log(movie, 'фильмы после фильтра');
         return movie;
       }
       return false;
