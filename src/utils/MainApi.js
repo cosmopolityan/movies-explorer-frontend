@@ -6,6 +6,11 @@ class Api {
     this._headers = options.headers
   }
 
+  _getToken() {
+    const jwt = localStorage.getItem('jwt');
+    return `Bearer ${jwt}`;
+}
+
   _checkResponse = (res) => {
     if (res.ok) {
       return res.json();
@@ -89,13 +94,16 @@ class Api {
       .then(this._checkResponse)
   }
 
-  saveMovie(movie, token) {
+  // saveMovie(movie, token) {
+    saveMovie(movie) {
     console.log(movie);
-    console.log(token);
-    return fetch(`${this._url}/movies`, { // Failed to load resource: the server responded with a status of 400 (Bad Request)
+    // console.log(token);
+    return fetch(`${this._url}/movies`, {
+      // Failed to load resource: the server responded with a status of 400 (Bad Request)
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${token}`,
+        // 'Authorization': `Bearer ${token}`,
+        authorization: this._getToken(),
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(movie)
