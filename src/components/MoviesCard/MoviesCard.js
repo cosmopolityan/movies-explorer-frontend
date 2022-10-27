@@ -38,7 +38,7 @@ const MoviesCard = (props) => {
         year,
         description,
         image: `https://api.nomoreparties.co${image.url}`,
-        trailer: trailerLink,
+        trailerLink: trailerLink,
         thumbnail: `https://api.nomoreparties.co${image.url}`,
         movieId: id.toString(),
         nameRU,
