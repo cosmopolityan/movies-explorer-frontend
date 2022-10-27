@@ -40,6 +40,7 @@ const SavedMovies = (props) => {
   const searchMovies = (searchkey) => {
     setTextShown(false);
     const movies = JSON.parse(localStorage.getItem('savedMovies'));
+    setMoviesList(movies); // добавил
     console.log(movies, 'фильмы из savedMovies');
 
     // const filteredMovies = Object.values(movies).filter((movie) => {
