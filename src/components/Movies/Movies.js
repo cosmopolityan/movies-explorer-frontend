@@ -57,7 +57,7 @@ const Movie = (props) => {
         if (shortMovie) {
           return movie.duration <= 40;
         }
-        console.log(movie);
+        console.log(movie, 'movie в defineMovies');
         return movie;
       }
       // console.log(movie);
@@ -67,8 +67,8 @@ const Movie = (props) => {
       setTextShown(true);
     }
     setMoviesList(moviesList); //
-    console.log(data);
-    console.log(moviesList);
+    console.log(data, 'data в defineMovies');
+    console.log(moviesList, 'moviesList в defineMovies');
   }
 
   const filterMovies = () => {

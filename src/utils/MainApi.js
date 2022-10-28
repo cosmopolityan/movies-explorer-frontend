@@ -93,7 +93,6 @@ class Api {
     console.log(movie);
     console.log(token);
     return fetch(`${this._url}/movies`, {
-      // Failed to load resource: the server responded with a status of 400 (Bad Request)
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${token}`,

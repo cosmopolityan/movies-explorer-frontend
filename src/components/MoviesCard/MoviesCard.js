@@ -52,7 +52,7 @@ const MoviesCard = (props) => {
         .catch((err) => {
           console.log(err);
         });
-        console.log(newMovie);
+        console.log(newMovie, 'newMovie в defineMovies');
         console.log(jwt);
     } else {
       mainApi.deleteMovie(movie._id, jwt)
@@ -62,7 +62,7 @@ const MoviesCard = (props) => {
         .catch((err) => {
           console.log(err);
         });
-        console.log(movie._id);
+        console.log(movie._id, 'movie._id в defineMovies');
         console.log(jwt);
     }
   }

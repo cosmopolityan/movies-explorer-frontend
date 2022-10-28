@@ -54,7 +54,7 @@ const SavedMovies = (props) => {
     });
     localStorage.setItem('filteredMovies', JSON.stringify(filteredMovies));
     const filteredByLengthMovies = filteredMovies.filter((movie) => {
-      console.log(filteredByLengthMovies, 'filteredMovies');
+      console.log(filteredByLengthMovies, 'filteredMovies из localStorage');
       if (movie.nameRU.toLowerCase().includes(searchkey.toLowerCase())) {
         if (shortMovie) {
           return movie.duration <= 40;;
