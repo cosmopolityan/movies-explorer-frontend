@@ -43,8 +43,8 @@ const SavedMovies = (props) => {
     setMoviesList(movies); // добавил
     console.log(movies, 'фильмы из savedMovies');
 
-    const filteredMovies = Object.values(movies).filter((movie) => {
-      // const filteredMovies = movies.filter((movie) => {
+    // const filteredMovies = Object.values(movies).filter((movie) => {
+      const filteredMovies = movies.filter((movie) => {
       // Uncaught TypeError: n.filter is not a function
       console.log(filterMovies, 'filteredMovies');
       if (movie.nameRU.toLowerCase().includes(searchkey.toLowerCase())) {
