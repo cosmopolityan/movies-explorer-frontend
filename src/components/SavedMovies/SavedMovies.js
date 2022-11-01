@@ -116,7 +116,7 @@ const SavedMovies = (props) => {
       />
       <main className='content content_state_logedin'>
         <SearchForm
-          place='savedmovies'
+          place='savedMovies'
           onSubmit={searchMovies}
           onCheckbox={filterMovies}
           checkboxValue={shortMovie}
@@ -126,7 +126,7 @@ const SavedMovies = (props) => {
         {moviesList.length === 0 && noMovies && <p className='movies__text'>У вас ещё нет сохранённых фильмов</p>}
         {moviesList.length === 0 && textShown && <p className='movies__text'>Ничего не найдено</p>}
         <MoviesCardList
-          place='savedmovies'
+          place='savedMovies'
           moviesList={moviesList}
           handleLikeClick={onDelete}
         />
