@@ -24,6 +24,7 @@ const SavedMovies = (props) => {
     mainApi.getMovies(jwt)
       .then((res) => {
         setMoviesList(res);
+        console.log(res, 'res в SavedMovies mainApi.getMovies');
         if (res.length === 0) {
           setNoMovies(true);
         }
