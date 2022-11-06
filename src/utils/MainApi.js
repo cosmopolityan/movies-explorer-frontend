@@ -90,8 +90,8 @@ class Api {
   }
 
   saveMovie(movie, token) {
-    console.log(movie);
-    console.log(token);
+    console.log(movie, 'movie в saveMovie (mainApi.js)');
+    console.log(token, 'token в saveMovie (mainApi.js)');
     return fetch(`${this._url}/movies`, {
       method: 'POST',
       headers: {
@@ -104,7 +104,7 @@ class Api {
   }
 
   deleteMovie(id, token) {
-    console.log(id);
+    console.log(id, 'id в deleteMovie (mainApi.js)');
     console.log(token);
     return fetch(`${this._url}/movies/${id}`, {
       method: 'DELETE',

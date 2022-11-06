@@ -26,7 +26,6 @@ const Movie = (props) => {
       .catch((err) => {
         console.log(err)
       })
-      // console.log(jwt);
   }, [])
 
   const searchMovies = (searchkey) => {
@@ -106,7 +105,7 @@ const Movie = (props) => {
         />
         {preloaderShown && <Preloader />}
         {moviesList.length === 0 && textShown && <p className='movies__text'>Ничего не найдено</p>}
-        {errorShown && <p className='movies__text movies__text_type_error'>Во время запроса произошла ошибка. Возможно сервер недоступен или есть проблема с соединением. Попробуйте еще раз попозже.</p>}
+        {errorShown && <p className='movies__text movies__text_type_error'>Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз.</p>}
         <MoviesCardList
           place='allmovies'
           moviesList={moviesList}

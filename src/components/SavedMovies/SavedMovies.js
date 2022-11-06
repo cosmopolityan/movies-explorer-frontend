@@ -41,12 +41,9 @@ const SavedMovies = (props) => {
   const searchMovies = (searchkey) => {
     setTextShown(false);
     const movies = JSON.parse(localStorage.getItem('savedMovies'));
-    // setMoviesList(movies); // добавил
     console.log(movies, 'фильмы из savedMovies');
 
-    // const filteredMovies = Object.values(movies).filter((movie) => {
       const filteredMovies = movies.filter((movie) => {
-      // Uncaught TypeError: n.filter is not a function
       console.log(filterMovies, 'filteredMovies');
       if (movie.nameRU.toLowerCase().includes(searchkey.toLowerCase())) {
         console.log(movie, 'фильмы после фильтра');
@@ -123,7 +120,7 @@ const SavedMovies = (props) => {
           checkboxValue={shortMovie}
         />
         {preloaderShown && <Preloader />}
-        {errorShown && <p className='movies__text movies__text_type_error'>Во время запроса произошла ошибка. Возможно сервер недоступен или есть проблема с соединением. Попробуйте еще раз попозже.</p>}
+        {errorShown && <p className='movies__text movies__text_type_error'>Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз.</p>}
         {moviesList.length === 0 && noMovies && <p className='movies__text'>У вас ещё нет сохранённых фильмов</p>}
         {moviesList.length === 0 && textShown && <p className='movies__text'>Ничего не найдено</p>}
         <MoviesCardList
