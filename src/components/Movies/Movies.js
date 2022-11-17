@@ -8,7 +8,7 @@ import { mainApi } from '../../utils/MainApi';
 import Preloader from '../Preloader/Preloader';
 import './Movies.css';
 
-import { ShortFilmDuration/*, LargeScreenMoviesAmount, MediumScreenMoviesAmount, SmallScreenMoviesAmount, LargeScreenAddMoviesAmount, SmallScreenAddMoviesAmount */} from '../../utils/constants.js';
+import { ShortFilmDuration } from '../../utils/constants.js';
 
 const Movie = (props) => {
   const { logedIn, savedMovies } = props;

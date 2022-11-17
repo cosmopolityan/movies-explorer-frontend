@@ -194,8 +194,10 @@ function App() {
     localStorage.clear();
     localStorage.removeItem('shortMovie');
     localStorage.removeItem('searchKey');
+    localStorage.removeItem('savedMovies');
+    localStorage.removeItem('filteredMovies');
     localStorage.removeItem('findedMovies');
-    localStorage.removeItem('token');
+    localStorage.removeItem('jwt');
   }
 
   return (
