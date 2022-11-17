@@ -8,7 +8,7 @@ const MoviesCard = (props) => {
 
   React.useEffect(() => {
     if (savedCards) {
-      const likedMovie = savedCards.find((item) => movie.id == item.movieId);
+      const likedMovie = savedCards.find((item) => movie.id === item.movieId);
       if (likedMovie) {
         setIsLiked(true);
         movie._id = likedMovie._id;

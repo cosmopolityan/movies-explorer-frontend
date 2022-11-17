@@ -2,6 +2,8 @@ import React from 'react';
 import MoviesCard from '../MoviesCard/MoviesCard';
 import './MoviesCardList.css'
 
+import { ShortFilmDuration, LargeScreenMoviesAmount, MediumScreenMoviesAmount, SmallScreenMoviesAmount, LargeScreenAddMoviesAmount, SmallScreenAddMoviesAmount } from '../../utils/constants.js';
+
 const MoviesCardList = (props) => {
   const { place, moviesList, handleLikeClick } = props;
   const [cardNumber, setCardNumber] = React.useState(0);

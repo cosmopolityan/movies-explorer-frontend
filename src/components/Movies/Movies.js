@@ -8,6 +8,8 @@ import { mainApi } from '../../utils/MainApi';
 import Preloader from '../Preloader/Preloader';
 import './Movies.css';
 
+import { ShortFilmDuration/*, LargeScreenMoviesAmount, MediumScreenMoviesAmount, SmallScreenMoviesAmount, LargeScreenAddMoviesAmount, SmallScreenAddMoviesAmount */} from '../../utils/constants.js';
+
 const Movie = (props) => {
   const { logedIn, savedMovies } = props;
   const [preloaderShown, setPreloaderShown] = React.useState(false);
@@ -54,7 +56,7 @@ const Movie = (props) => {
     const moviesList = data.filter((movie) => {
       if (movie.nameRU.toLowerCase().includes(searchkey.toLowerCase())) {
         if (shortMovie) {
-          return movie.duration <= 40;
+          return movie.duration <= ShortFilmDuration;
         }
         console.log(movie, 'movie в defineMovies');
         return movie;
@@ -75,7 +77,7 @@ const Movie = (props) => {
     if (moviesList.length > 0) {
       if (!shortMovie) {
         const movies = moviesList.filter((movie) => {
-          return movie.duration <= 40;
+          return movie.duration <= ShortFilmDuration;
         });
         setMoviesList(movies);
         if (movies.length === 0) {

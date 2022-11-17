@@ -29,6 +29,8 @@ import {
   MAIN_URL,
 } from '../../utils/config';
 
+import { ShortFilmDuration, LargeScreenMoviesAmount, MediumScreenMoviesAmount, SmallScreenMoviesAmount, LargeScreenAddMoviesAmount, SmallScreenAddMoviesAmount, LargeScreenWidth, MediumScreenWidth } from '../../utils/constants.js';
+
 function App() {
   const history = useHistory();
   const location = useLocation();
@@ -42,6 +44,13 @@ function App() {
   const [successText, setSuccessText] = React.useState('');
   const [savedMovies, setSavedMovies] = React.useState([]);
 
+  const [isMovieShort, setIsMovieShort] = React.useState(false);
+  const [searchKey, setSearchKey] = React.useState('');
+  const [findedMovies, setFindedMovies] = React.useState([]);
+
+  const [moviesAmount, setMoviesAmount] = React.useState();
+	const [addMoviesAmount, setAddMoviesAmount] = React.useState();
+
   const isLogIn = (value) => {
     setLogedIn(value);
   }
@@ -51,8 +60,51 @@ function App() {
   }, [])
 
   React.useEffect(() => {
+    if (logedIn) {
+      const movies = JSON.parse(localStorage.getItem('findedMovies'));
+      setFindedMovies(movies);
+      const toggle = JSON.parse(localStorage.getItem('shortMovie'));
+      setIsMovieShort(Boolean(toggle));
+      const value = localStorage.getItem('searchKey');
+      setSearchKey(value);
+    }
+  }, [logedIn, history])
+
+  React.useEffect(() => {
     tokenCheck();
   }, []) //
+
+  React.useEffect(() => {
+    window.addEventListener('resize', listenerCallback);
+    return () => {
+      window.removeEventListener('resize', listenerCallback);
+    }
+  }, [])
+
+  React.useEffect(() => {
+    resizedEnded();
+  }, [])
+
+  let resizeDisplay;
+
+  function listenerCallback() {
+    clearTimeout(resizeDisplay);
+    resizeDisplay = setTimeout(resizedEnded, 500);
+  };
+
+  function resizedEnded() {
+    const width = window.innerWidth;
+    if (width > LargeScreenWidth) {
+      setMoviesAmount(LargeScreenMoviesAmount);
+      setAddMoviesAmount(LargeScreenAddMoviesAmount);
+    } else if (width > MediumScreenWidth) {
+      setMoviesAmount(MediumScreenMoviesAmount);
+      setAddMoviesAmount(SmallScreenAddMoviesAmount);
+    } else {
+      setMoviesAmount(SmallScreenMoviesAmount);
+      setAddMoviesAmount(SmallScreenAddMoviesAmount);
+    }
+  }
 
   const handleRegister = (email, password, name) => {
     setRegError(false);
@@ -140,8 +192,10 @@ function App() {
 
   const onSignOut = () => {
     localStorage.clear();
-    setLogedIn(false);
-    history.push('/');
+    localStorage.removeItem('shortMovie');
+    localStorage.removeItem('searchKey');
+    localStorage.removeItem('findedMovies');
+    localStorage.removeItem('token');
   }
 
   return (

@@ -5,7 +5,9 @@ import Header from '../Header/Header';
 import SearchForm from '../SearchForm/SearchForm';
 import { mainApi } from '../../utils/MainApi';
 import Preloader from '../Preloader/Preloader';
-import './SavedMovies.css'
+import './SavedMovies.css';
+
+import { ShortFilmDuration/*, LargeScreenMoviesAmount, MediumScreenMoviesAmount, SmallScreenMoviesAmount, LargeScreenAddMoviesAmount, SmallScreenAddMoviesAmount */} from '../../utils/constants.js';
 
 const SavedMovies = (props) => {
   const { logedIn } = props;
@@ -56,7 +58,7 @@ const SavedMovies = (props) => {
       console.log(filteredByLengthMovies, 'filteredMovies из localStorage');
       if (movie.nameRU.toLowerCase().includes(searchkey.toLowerCase())) {
         if (shortMovie) {
-          return movie.duration <= 40;;
+          return movie.duration <= ShortFilmDuration;
         }
         return movie;
       }
@@ -73,7 +75,7 @@ const SavedMovies = (props) => {
     if (moviesList.length > 0) {
       if (!shortMovie) {
         const movies = moviesList.filter((movie) => {
-          return movie.duration <= 40;;
+          return movie.duration <= ShortFilmDuration;
         });
         setMoviesList(movies);
         if (movies.length === 0) {
